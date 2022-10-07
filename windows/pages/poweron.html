@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../winload.css">
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            height: 100vh;
+            background-color: #000;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: none;
+        }
+        body img{
+            width:160px;
+            margin-bottom:20%;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../img/windows10_icon.png"/>
+    <div class="loading"><i><span></span><span></span><span></span><span></span><span></span></i></div>
+</body>
+<script>
+    setTimeout(function(){
+        location.href='user.html?mode=poweron';
+    },3000)
+</script>
+</html>

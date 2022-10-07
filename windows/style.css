@@ -1,0 +1,21 @@
+*{
+    margin: 0;padding: 0;
+}
+body{
+    height: 100vh;
+    overflow: hidden;
+}
+#app{
+    width: 100%;
+    height: 100vh;
+}
+.pad-light{
+    background-color: #000d;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;left: 0;
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+}

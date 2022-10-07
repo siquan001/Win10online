@@ -1,0 +1,1 @@
+$('#app').attr('src','pages/poweron.html');

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../winload.css">
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            background-color: #09f;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .loading{
+            width: 70px;
+            height: 70px;
+        }
+        .loading span:after{
+            width: 13%;
+            height: 13%;
+        }
+        .title{
+            font-size: 22px;
+            line-height: 50px;
+            margin-top: 15px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="loading"><i><span></span><span></span><span></span><span></span><span></span><span></span></i></div>
+    <div class="title">正在关机</div>
+</body>
+<script src="../urlreader.js"></script>
+<script>
+    if($_GET('mode')=='restart'){
+        $('.title').html('正在重启')
+        setTimeout(() => {
+            parent.location.reload();
+        }, 5000);
+    }else{
+        setTimeout(() => {
+            location.href='black.html'
+        }, 5000);
+    }
+</script>
+</html>
