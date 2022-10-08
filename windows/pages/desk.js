@@ -722,7 +722,7 @@ function fixBar(){
                     if(POPUPS[POPUPobj[k][i]].active){
                         ni.classList.add('active');
                     }
-                    ni.setAttribute('data-index',POPUPobj[k][1]);
+                    ni.setAttribute('data-index',POPUPobj[k][i]);
                     ni.innerHTML='<img src="'+k+'"/>';
                     $('.bar .left').get()[0].append(ni);
                 }
