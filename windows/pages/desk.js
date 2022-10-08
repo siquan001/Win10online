@@ -714,7 +714,7 @@ function fixBar(){
                 ni.innerHTML='<img src="'+k+'"/>';
                 $('.bar .left').get()[0].append(ni);
             }else{
-                for(var i=1;i<POPUPobj[k].length;i++){
+                for(var i=0;i<POPUPobj[k].length;i++){
                     var ni=document.createElement('div');
                     ni.classList.add('mini-ico');
                     ni.classList.add('q');
