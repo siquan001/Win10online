@@ -1,4 +1,4 @@
-
+var version= "0.7.2";
 var _a = _b = _c = true;
 var _q = {
     'win': false,
@@ -854,6 +854,8 @@ Popup.prototype={
                 }
             }
             $('.bar .left .mini-icon[data-index="'+index+'"]').click();
+        }else{
+            setFocus(this.element);
         }
         return this;
     },
@@ -885,19 +887,31 @@ function lightframechange(t){
 }
 $('.desk ul li').on('dblclick',function(){
     var options=JSON.parse($(this).attr('data-options'));
+    for(var i=0;i<POPUPS.length;i++){
+        if(POPUPS[i].icon==options.icon&&POPUPS[i].title==options.title&&POPUPS[i].url==options.url){
+            POPUPS[i].show();
+            return;
+        }
+    }
     var p=new Popup(options);
     p.build().init();
 })
 $('.win-frame .applist ul li').click(function(){
     var options=JSON.parse($(this).attr('data-options'));
     var p=new Popup(options);
+    for(var i=0;i<POPUPS.length;i++){
+        if(POPUPS[i].icon==options.icon&&POPUPS[i].title==options.title&&POPUPS[i].url==options.url){
+            POPUPS[i].show();
+            return;
+        }
+    }
     p.build().init();
     $('.bar .left .win').click();
 })
 
 
 //******deploy**
-if(localStorage.fwed==undefined){
+if(localStorage.version==undefined){
     new Popup({
         url:'../apps/aboutme.html',
         title:'关于',
@@ -905,5 +919,14 @@ if(localStorage.fwed==undefined){
         offset:['calc(50% - 250px)','calc(50% - 200px)','400px','500px'],
         notMax:true
     }).build().init();
-    localStorage.fwed='1';
+    localStorage.version=version;
+}else if(localStorage.version!=version){
+    new Popup({
+        url:'../apps/updates.html',
+        title:'版本更新',
+        icon:'../../img/icon/win/255.png',
+        offset:['calc(50% - 150px)','calc(50% - 200px)','400px','300px'],
+        notMax:true
+    }).build().init();
+    localStorage.version=version;
 }
