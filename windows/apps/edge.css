@@ -11,3 +11,87 @@
     color: #ddd;
     background-color: #fff;
 }
+.top{
+    width: 100%;
+    height: 40px;
+    background-color: #fafafa;
+}
+.top .icon{
+    width: 36px;
+    height: 36px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: all .3s;
+}
+.top .icon:hover{
+    background-color: #0002;
+}
+.top>*{
+    float: left;
+}
+.top .search{
+    width: calc(100% - 160px);
+    border-radius: 5px;
+    background-color: #fff;
+    height: 34px;
+    box-shadow: 0 0 2px #0003;
+    margin: 3px 0;
+}
+.top .search .ui-icon{
+    width: 34px;
+    height: 34px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
+.top .search input{
+    width: calc(100% - 46px);
+    height: 34px;
+    padding:0 6px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+}
+.links{
+    width: 100%;
+    height: 24px;
+    background-color: #fafafa;
+}
+.links a{
+    text-decoration: none;
+    color: #000;
+}
+.links li{
+    float: left;
+    list-style: none;
+    width: 100px;
+    height: 24px;
+}
+.links img,.links p{
+    float: left;
+}
+.links img{
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+}
+.links p{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 24px;
+    width: 76px;
+    font-size: 14px;
+}
+#frame{
+    width: 100%;
+    height: calc(100% - 68px);
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
