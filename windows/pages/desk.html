@@ -12,15 +12,18 @@
 <body>
     <div class="desk">
         <ul>
-            <li class="desk-icon" data-options='{"icon":"../../img/icon/win/thispc.png","url":"../apps/explorer.html","offset":["100px","100px","700px","450px"],"title":"计算机"}'>
+            <li class="desk-icon"
+                data-options='{"icon":"../../img/icon/win/thispc.png","url":"../apps/explorer.html","offset":["100px","100px","700px","450px"],"title":"计算机"}'>
                 <img src="../../img/icon/win/thispc.png" alt="">
                 <p>此电脑</p>
             </li>
-            <li class="desk-icon" data-options='{"icon":"../../img/icon/win/bin.png","url":"../apps/bin.html","offset":["100px","100px","700px","450px"],"title":"回收站"}'>
+            <li class="desk-icon"
+                data-options='{"icon":"../../img/icon/win/bin.png","url":"../apps/bin.html","offset":["100px","100px","700px","450px"],"title":"回收站"}'>
                 <img src="../../img/icon/bin1.png" alt="">
                 <p>回收站</p>
             </li>
-            <li class="desk-icon" data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","max":true}'>
+            <li class="desk-icon"
+                data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","max":true}'>
                 <img src="../../img/icon/edge.png" alt="">
                 <p>Microsoft Edge</p>
             </li>
@@ -110,60 +113,68 @@
             <div class="applist">
                 <p class="mini">所有应用</p>
                 <ul>
-                    <li data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","max":true}'>
+                    <li
+                        data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","max":true}'>
                         <img src="../../img/icon/edge.png" alt="">
                         <p>Microsoft Edge</p>
                     </li>
-                    <li data-options='{"icon":"../../img/icon/win/255.png","url":"../apps/aboutme.html","offset":["calc(50% - 250px)","calc(50% - 200px)","400px","500px"],"title":"关于我们","notMax":true}'>
+                    <li
+                        data-options='{"icon":"../../img/icon/win/255.png","url":"../apps/aboutme.html","offset":["calc(50% - 250px)","calc(50% - 200px)","400px","500px"],"title":"关于我们","notMax":true}'>
                         <img src="../../img/icon/win/255.png"" alt="">
                         <p>关于我们</p>
+                    </li>
+                    <li
+                        data-options='{"icon":"../../img/icon/calculator.png","url":"../apps/jisuanqi.html","offset":["calc(50% - 250px)","calc(50% - 200px)","400px","500px"],"title":"计算器"}'>
+                        <img src="../../img/icon/calculator.png"" alt="">
+                        <p>计算器</p>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="other-run-frame quick-frame"></div>
-        <div class="battery-frame quick-frame">
-            <div class="battery-data">
-                <div class="ui-icon">
-                    <span class="bi bi-battery-full"></span>
+        <div class=" other-run-frame quick-frame">
+            </div>
+            <div class="battery-frame quick-frame">
+                <div class="battery-data">
+                    <div class="ui-icon">
+                        <span class="bi bi-battery-full"></span>
+                    </div>
+                    <div class="title">100%</div>
                 </div>
-                <div class="title">100%</div>
-            </div>
-            <a href="javascript:;" class="win-link">电池设置</a>
-            <div class="win-check">
-                <div class="ui-icon">
-                    <img src="../../img/icon/ui/saver.png" alt="">
+                <a href="javascript:;" class="win-link">电池设置</a>
+                <div class="win-check">
+                    <div class="ui-icon">
+                        <img src="../../img/icon/ui/saver.png" alt="">
+                    </div>
+                    <div class="title">节电模式</div>
                 </div>
-                <div class="title">节电模式</div>
             </div>
-        </div>
-        <div class="wifi-frame quick-frame">
-            <div class="win-t-load">
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="sound-frame quick-frame">
-            <div class="title">扬声器(High Definition Audio Device)</div>
-            <div class="sound-range">
-                <div class="ui-icon">
-                    <img src="../../img/icon/ui/audio2.png" alt="">
+            <div class="wifi-frame quick-frame">
+                <div class="win-t-load">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
                 </div>
-                <div class="win-range" data-min="0" data-max="100" data-value="50" data-change="soundframechange">
-                    <span class="r1"></span>
-                    <span class="r2"></span>
-                    <span class="r3"></span>
+            </div>
+            <div class="sound-frame quick-frame">
+                <div class="title">扬声器(High Definition Audio Device)</div>
+                <div class="sound-range">
+                    <div class="ui-icon">
+                        <img src="../../img/icon/ui/audio2.png" alt="">
+                    </div>
+                    <div class="win-range" data-min="0" data-max="100" data-value="50" data-change="soundframechange">
+                        <span class="r1"></span>
+                        <span class="r2"></span>
+                        <span class="r3"></span>
+                    </div>
+                    <div class="sound-data">50</div>
                 </div>
-                <div class="sound-data">50</div>
             </div>
-        </div>
-        <div class="time-frame quick-frame"></div>
-        <div class="message-frame quick-frame">
-            <div class="top-bar">
-                <a href="javascript:;" class="win-link">管理通知</a>
-            </div>
-            <div class="message-list">
-                <ul>
-                    <!-- <li>
+            <div class="time-frame quick-frame"></div>
+            <div class="message-frame quick-frame">
+                <div class="top-bar">
+                    <a href="javascript:;" class="win-link">管理通知</a>
+                </div>
+                <div class="message-list">
+                    <ul>
+                        <!-- <li>
                         <div class="top">
                             <div class="ui-icon">
                                 <img src="../../img/icon/edge.png" alt="">
@@ -178,94 +189,96 @@
                         </div>
                     </li>
                      -->
+                    </ul>
+                </div>
+                <div class="kzt">
+                    <div class="checks">
+                        <div class="win-check disable">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/bluetooth.png" alt="">
+                            </div>
+                            <div class="title">蓝牙</div>
+                        </div>
+                        <div class="win-check">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/airplane.png" alt="">
+                            </div>
+                            <div class="title">飞行模式</div>
+                        </div>
+                        <div class="win-check">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/nightlight.png" alt="">
+                            </div>
+                            <div class="title">夜间模式</div>
+                        </div>
+                        <div class="win-check">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/settings.png" alt="">
+                            </div>
+                            <div class="title">所有设置</div>
+                        </div>
+                        <div class="win-check">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/wifi.png" alt="">
+                            </div>
+                            <div class="title">网络</div>
+                        </div>
+                        <div class="win-check">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/moon.png" alt="">
+                            </div>
+                            <div class="title">专注助手</div>
+                        </div>
+                        <div class="win-check">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/saver.png" alt="">
+                            </div>
+                            <div class="title">节电模式</div>
+                        </div>
+                        <div class="win-check">
+                            <div class="ui-icon">
+                                <img src="../../img/icon/ui/screenshot.png" alt="">
+                            </div>
+                            <div class="title">屏幕截图</div>
+                        </div>
+                    </div>
+                    <div class="light-range">
+                        <div class="ui-icon">
+                            <img src="../../img/icon/ui/sun.png" alt="">
+                        </div>
+                        <div class="win-range" data-min="0" data-max="100" data-value="100"
+                            data-change="lightframechange"><span class="r1"></span><span class="r2"></span><span
+                                class="r3"></span></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="darkthememenu">
+            <div class="power-menu">
+                <ul>
+                    <li class="sleep-item">
+                        <div class="ui-icon">
+                            <span class="bi bi-moon"></span>
+                        </div>
+                        <div class="title">睡眠</div>
+                    </li>
+                    <li class="poweroff-item">
+                        <div class="ui-icon">
+                            <span class="bi bi-power"></span>
+                        </div>
+                        <div class="title">关机</div>
+                    </li>
+                    <li class="restart-item">
+                        <div class="ui-icon">
+                            <span class="bi bi-arrow-clockwise"></span>
+                        </div>
+                        <div class="title">重启</div>
+                    </li>
                 </ul>
             </div>
-            <div class="kzt">
-                <div class="checks">
-                    <div class="win-check disable">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/bluetooth.png" alt="">
-                        </div>
-                        <div class="title">蓝牙</div>
-                    </div>
-                    <div class="win-check">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/airplane.png" alt="">
-                        </div>
-                        <div class="title">飞行模式</div>
-                    </div>
-                    <div class="win-check">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/nightlight.png" alt="">
-                        </div>
-                        <div class="title">夜间模式</div>
-                    </div>
-                    <div class="win-check">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/settings.png" alt="">
-                        </div>
-                        <div class="title">所有设置</div>
-                    </div>
-                    <div class="win-check">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/wifi.png" alt="">
-                        </div>
-                        <div class="title">网络</div>
-                    </div>
-                    <div class="win-check">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/moon.png" alt="">
-                        </div>
-                        <div class="title">专注助手</div>
-                    </div>
-                    <div class="win-check">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/saver.png" alt="">
-                        </div>
-                        <div class="title">节电模式</div>
-                    </div>
-                    <div class="win-check">
-                        <div class="ui-icon">
-                            <img src="../../img/icon/ui/screenshot.png" alt="">
-                        </div>
-                        <div class="title">屏幕截图</div>
-                    </div>
-                </div>
-                <div class="light-range">
-                    <div class="ui-icon">
-                        <img src="../../img/icon/ui/sun.png" alt="">
-                    </div>
-                    <div class="win-range" data-min="0" data-max="100" data-value="100" data-change="lightframechange"><span class="r1"></span><span class="r2"></span><span class="r3"></span></div>
-
-                </div>
-            </div>
         </div>
-    </div>
-    <div class="darkthememenu">
-        <div class="power-menu">
-            <ul>
-                <li class="sleep-item">
-                    <div class="ui-icon">
-                        <span class="bi bi-moon"></span>
-                    </div>
-                    <div class="title">睡眠</div>
-                </li>
-                <li class="poweroff-item">
-                    <div class="ui-icon">
-                        <span class="bi bi-power"></span>
-                    </div>
-                    <div class="title">关机</div>
-                </li>
-                <li class="restart-item">
-                    <div class="ui-icon">
-                        <span class="bi bi-arrow-clockwise"></span>
-                    </div>
-                    <div class="title">重启</div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <iframe id="sleep-ifr" frameborder="0"></iframe>
+        <iframe id="sleep-ifr" frameborder="0"></iframe>
 </body>
 <script src="desk.js"></script>
 

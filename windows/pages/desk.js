@@ -1,4 +1,4 @@
-var version= "0.7.2";
+var version= "0.7.2.1";
 var _a = _b = _c = true;
 var _q = {
     'win': false,
