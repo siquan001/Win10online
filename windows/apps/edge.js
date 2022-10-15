@@ -13,7 +13,7 @@ document.querySelector('.top input').onkeydown=function(e){
         if(!a) return;
         if(a.indexOf('.')>0){
             if(a.indexOf('://')==-1){
-                a='http://'+a;
+                a='https://'+a;
             }  
         }else{
             a='https://cn.bing.com/search?q='+a;
