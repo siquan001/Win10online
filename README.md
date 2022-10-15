@@ -7,7 +7,9 @@ Windows 10 网页版是一个使用标准的网页技术，如HTML、CSS、Javas
 本项目中Microsoft、Windows和其它示范产品是Microsoft公司的商标。
 ## 其它
 如果你对该项目感兴趣可以到<a target="_blank" href="https://github.com/siquan001/Win10online">Github</a>提issue，或联系我的邮箱：chensiquan2022@163.com
-## 当前版本:0.7.2
+## 当前版本:0.7.2.1
+新增计算器应用
+### 0.7.2
 - 修改部分内容
 - 新增Edge应用
 - 新增版本更新提醒
