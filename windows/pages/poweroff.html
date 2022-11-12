@@ -32,7 +32,6 @@
             margin-top: 15px;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="loading"><i><span></span><span></span><span></span><span></span><span></span><span></span></i></div>
@@ -41,7 +40,7 @@
 <script src="../urlreader.js"></script>
 <script>
     if($_GET('mode')=='restart'){
-        $('.title').html('正在重启')
+        document.querySelector('.title').innerText='正在重启';
         setTimeout(() => {
             parent.location.reload();
         }, 5000);
