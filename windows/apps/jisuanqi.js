@@ -38,7 +38,7 @@ $('.chu').onclick=function(){
     fhclick('/');
 }
 $('.dengyu').onclick=function(){
-    if(fh&&nc){
+    if(fh&&$('.show_frame .log').innerText){
         var result=js(nc,fh,parseFloat($('.show_frame .log').innerText));
         fh=null;
         nc=null;
