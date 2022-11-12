@@ -38,15 +38,17 @@ $('.chu').onclick=function(){
     fhclick('/');
 }
 $('.dengyu').onclick=function(){
-    var result=js(nc,fh,parseFloat($('.show_frame .log').innerText));
-    fh=null;
-    nc=null;
-    $('.show_frame .mes').innerText='';
-    $('.show_frame .log').innerText=result;
-    if($('.show_frame .log').innerText.length>10){
-        $('.show_frame .log').style.fontSize="24px"
-    }else{
-        $('.show_frame .log').style.fontSize="46px"
+    if(fh){
+        var result=js(nc,fh,parseFloat($('.show_frame .log').innerText));
+        fh=null;
+        nc=null;
+        $('.show_frame .mes').innerText='';
+        $('.show_frame .log').innerText=result;
+        if($('.show_frame .log').innerText.length>10){
+            $('.show_frame .log').style.fontSize="24px"
+        }else{
+            $('.show_frame .log').style.fontSize="46px"
+        }
     }
 }
 $('.allc').onclick=function(){
