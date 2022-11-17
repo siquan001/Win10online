@@ -10,6 +10,7 @@ var _q = {
     'message': false,
 };
 var __winclickcache01;
+var ZINDEX=0;
 function refreshdeskIcon() {
     $('.desk li.desk-icon').click(function () {
         $('.desk li.desk-icon').removeClass('active');
@@ -626,7 +627,7 @@ function refix(){
 
         }
         
-        $(b).find('.window-quickallframe').click(function(){
+        $(b).mousedown(function(){
             setFocus(b);
         });
         $(b).find('.window-czbtns .window-close').get()[0].onclick=function(){
@@ -639,6 +640,7 @@ function refix(){
             fixBar()
         }
         $(b).find('.window-czbtns .window-min-size').get()[0].onclick=function(){
+            setFocus(b);
             var index;
             for(var i=0;i<POPUPS.length;i++){
                 if($(b).attr('data-id')==POPUPS[i].id){
@@ -652,13 +654,9 @@ function refix(){
     
 }
 function setFocus(b){
-    $('.windows-open-window .window-quickallframe').show();
-    $(b).find('.window-quickallframe').hide();
-    $('.windows-open-window').css({
-        'z-index':'1'
-    })
+    ZINDEX++;
     $(b).css({
-        'z-index':'2'
+        'z-index':ZINDEX.toString()
     })
 }
 function fixBar(){
@@ -740,7 +738,7 @@ function fixBar(){
             }else{
                 var index=parseInt($(this).attr('data-index'));
                 var jq=$(POPUPS[index].element);
-                if(jq.css('z-index')=='1'){
+                if(parseInt(jq.css('z-index'))<ZINDEX){
                     setFocus(jq.get()[0]);
                 }else{
                     if(jq.css('display')=='block'){
@@ -816,8 +814,7 @@ Popup.prototype={
         <div class="window-content">
             <iframe src="${this.url}" frameborder="0"></iframe>
         </div>
-        <div class="window-quickframe"></div>
-        <div class="window-quickallframe"></div>`;
+        <div class="window-quickframe"></div>`;
         var newwindow=document.createElement('div');
         newwindow.classList.add('windows-open-window');
         newwindow.setAttribute('data-offset',JSON.stringify(this.offset));
@@ -902,6 +899,7 @@ $('.win-frame .applist ul li').click(function(){
     for(var i=0;i<POPUPS.length;i++){
         if(POPUPS[i].icon==options.icon&&POPUPS[i].title==options.title&&POPUPS[i].url==options.url){
             POPUPS[i].show();
+            $('.bar .left .win').click();
             return;
         }
     }

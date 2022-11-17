@@ -222,7 +222,7 @@ li{
     position: absolute;
     background-color: #101010dd;
     backdrop-filter: blur(10px);
-    z-index:9;
+    z-index:99999;
 }
 
 .quick-frames {
@@ -862,7 +862,7 @@ filter: invert(0);
     float: left;
     width: 50px;
     height: 34px;
-    background-size: 10px;
+    background-size: 12px;
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -895,15 +895,6 @@ filter: invert(0);
     z-index: 4;
     display: none;
     user-select: none;
-}
-.windows-open-window .window-quickallframe{
-    z-index: 5;
-    display: none;
-    user-select: none;
-    position: absolute;
-    top: 0;left: 0;
-    width: 100%;
-    height: 100%;
 }
 .windows-open-window .window-content iframe{
     width: 100%;height: 100%;
