@@ -4,3 +4,6 @@ function r(){
     document.body.style.height=window.innerHeight+'px';
 }
 r();
+document.onclick=function(){
+    self.frameElement.parentElement.parentElement.click();
+}

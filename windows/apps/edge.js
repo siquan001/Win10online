@@ -4,6 +4,9 @@ function r(){
     document.body.style.height=window.innerHeight+'px';
 }
 r();
+document.onclick=function(){
+    self.frameElement.parentElement.parentElement.click();
+}
 var f=document.getElementById('frame');
 var h=['https://bing.com/'];
 document.querySelector('.top input').onkeydown=function(e){

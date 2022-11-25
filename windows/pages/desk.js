@@ -1,4 +1,4 @@
-var version= "0.7.2.1";
+var version= "0.7.5";
 var _a = _b = _c = true;
 var _q = {
     'win': false,
@@ -151,6 +151,11 @@ $('.win-frame .left-bar .power-item').click(function () {
     _c = false;
     $('.darkthememenu>.power-menu').toggle(300);
 });
+$('.win-frame .left-bar .setting-item').click(function () {
+    var opc={"icon":"../../img/icon/settings.png","url":"../apps/setting.html","offset":["20px","20px","700px","560px"],"title":"设置","automax":true};
+    new Popup(opc).build().init();
+    xqwinframe();
+});
 $('.darkthememenu>.power-menu .sleep-item').click(function () {
     $('#sleep-ifr').show();
     $('#sleep-ifr').attr('src', 'user.html?mode=sleep');
@@ -163,14 +168,14 @@ $('.darkthememenu>.power-menu .restart-item').click(function () {
 });
 document.querySelectorAll('.win-check').forEach(function (e) {
     e.addEventListener('click', function () {
-        if (this.classList.contains('checked')) {
+        if (this.classList.contains('disable')) {    
+        } else if (this.classList.contains('checked')) {
             this.classList.remove('checked');
             var fnt=e.getAttribute('data-change');
             if(fnt) eval(fnt+'({value:false})');
-        } else if (this.classList.contains('disable')) {
-
         } else {
             this.classList.add('checked');
+            var fnt=e.getAttribute('data-change');
             if(fnt) eval(fnt+'({value:true})');
         }
     })
@@ -237,8 +242,7 @@ function soundframechange(t){
     }
     $('.sound-frame .sound-range .sound-data').text(parseInt(t.value));
 }
-function refix(){
-    $('.windows-open-window').each(function (ele, b) {
+function refix(b){
         var of = JSON.parse($(b).attr('data-offset'));
         $(b).css({
             'top': of[0],
@@ -247,7 +251,7 @@ function refix(){
             'height': of[3]
         });
         $(b).find('.window-drags-top').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var y = e.pageY, ny, dy = b.getBoundingClientRect().top, by = b.getBoundingClientRect().height;
             function fna(e) {
                 ny = e.pageY;
@@ -273,13 +277,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         });
         $(b).find('.window-drags-left').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var x = e.pageX, nx, dx = b.getBoundingClientRect().left, bx = b.getBoundingClientRect().width;
             function fna(e) {
                 nx = e.pageX;
@@ -305,13 +309,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         })
         $(b).find('.window-drags-right').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var x = e.pageX, nx, dx = $(window).width()-$(b).offset().left-$(b).width(), bx = b.getBoundingClientRect().width;
             function fna(e) {
                 nx = e.pageX;
@@ -335,13 +339,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         })
         $(b).find('.window-drags-bottom').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var y = e.pageY, ny, dy = $(window).height()-45-$(b).offset().top-$(b).height(), by = b.getBoundingClientRect().height;
             function fna(e) {
                 ny = e.pageY;
@@ -365,13 +369,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         })
         $(b).find('.window-drags-top-left').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var y = e.pageY, ny, dy = b.getBoundingClientRect().top, by = b.getBoundingClientRect().height;
             var x = e.pageX, nx, dx = b.getBoundingClientRect().left, bx = b.getBoundingClientRect().width;
             function fna(e) {
@@ -415,13 +419,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         })
         $(b).find('.window-drags-top-right').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var y = e.pageY, ny, dy = b.getBoundingClientRect().top, by = b.getBoundingClientRect().height;
             var x = e.pageX, nx, dx = $(window).width()-$(b).offset().left-$(b).width(), bx = b.getBoundingClientRect().width;
             function fna(e) {
@@ -463,13 +467,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         })
         $(b).find('.window-drags-bottom-left').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var y = e.pageY, ny, dy = $(window).height()-45-$(b).offset().top-$(b).height(), by = b.getBoundingClientRect().height;
             var x = e.pageX, nx, dx = b.getBoundingClientRect().left, bx = b.getBoundingClientRect().width;
             function fna(e) {
@@ -511,13 +515,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         })
         $(b).find('.window-drags-bottom-right').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var y = e.pageY, ny, dy = $(window).height()-45-$(b).offset().top-$(b).height(), by = b.getBoundingClientRect().height;
             var x = e.pageX, nx, dx = $(window).width()-$(b).offset().left-$(b).width(), bx = b.getBoundingClientRect().width;
             function fna(e) {
@@ -557,13 +561,13 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
         })
         $(b).find('.window-title').mousedown(function (e) {
-            $(b).find('.window-quickframe').show();
+            $('.window-quickframe').show();
             var y = e.pageY, ny, dy = b.getBoundingClientRect().top, by = b.getBoundingClientRect().height;
             var x = e.pageX, nx, dx = b.getBoundingClientRect().left, bx = b.getBoundingClientRect().width;
             function fna(e) {
@@ -585,7 +589,7 @@ function refix(){
             function fnb(e) {
                 document.removeEventListener('mousemove', fna);
                 document.removeEventListener('mouseup', fnb);
-                $(b).find('.window-quickframe').hide();
+                $('.window-quickframe').hide();
             }
             document.addEventListener('mousemove', fna);
             document.addEventListener('mouseup', fnb);
@@ -626,9 +630,17 @@ function refix(){
         }catch(err){
 
         }
-        
+        var _d=true;
         $(b).mousedown(function(){
+            _d=false;
             setFocus(b);
+        });
+        $(b).click(function(){
+            if(_d){
+                setFocus(b);
+            }else{
+                _d=true;
+            }
         });
         $(b).find('.window-czbtns .window-close').get()[0].onclick=function(){
             for(var i=0;i<POPUPS.length;i++){
@@ -649,9 +661,7 @@ function refix(){
                 }
             }
             $('.bar .left .mini-icon[data-index="'+index+'"]').click();
-        }
-    });
-    
+        }    
 }
 function setFocus(b){
     ZINDEX++;
@@ -781,7 +791,7 @@ var Popup=function(options){
     this.title=options.title;
     this.offset=options.offset;
     this.url=options.url;
-    this.automax=options.max;
+    this.automax=options.automax;
     this.id=(Math.random()*10000000).toString();
     this.active=false;
     this.element=null;
@@ -829,7 +839,7 @@ Popup.prototype={
             throw new Error('\n\tinit Popup对象时应先build()，或检查build是否出错')
         }
         document.body.append(this.element);
-        refix();
+        refix(this.element);
         this.active=true;
         POPUPS.push(this);
         setFocus(this.element);
@@ -899,15 +909,89 @@ $('.win-frame .applist ul li').click(function(){
     for(var i=0;i<POPUPS.length;i++){
         if(POPUPS[i].icon==options.icon&&POPUPS[i].title==options.title&&POPUPS[i].url==options.url){
             POPUPS[i].show();
-            $('.bar .left .win').click();
+            xqwinframe();
             return;
         }
     }
     p.build().init();
-    $('.bar .left .win').click();
+    xqwinframe();
 })
 
-
+var Notice=function(a){
+    this.icon=a.icon
+    this.title=a.title?a.title:''
+    this.center=a.center
+    this.onclick=a.onclick?a.onclick:function(){}
+    this.showTime=a.showTime?a.showTime:-1;
+}
+Notice.prototype={
+    send:function(){
+        var l=document.createElement('li');
+        var id=Math.random().toString();
+        l.setAttribute('data-hash',id);
+        l.innerHTML=`
+        <div class="top">
+            <div class="ui-icon">
+                <img src="${this.icon}" alt="">
+            </div>
+            <div class="title">${this.title}</div>
+            <div class="close">
+                <img src="../../img/icon/ui/close.png" alt="">
+            </div>
+        </div>
+        <div class="center">${this.center}</div>
+        `
+        $('.message-frame .message-list ul')[0].append(l);
+        var lc=$('.message-frame .message-list ul li[data-hash="'+id+'"]')[0].cloneNode(true);
+        this.element=l;
+        $('.message-container ul')[0].append(lc);
+        this.nelement=lc;
+        var _this=this;
+        $(l).find('.top .close').click(function(){
+            _this.close($(this).parents('li').attr('data-hash'));
+        });
+        $(lc).find('.top .close').click(function(){
+            _this.close($(this).parents('li').attr('data-hash'));
+        })
+        $(l).find('.center').click(function(){
+            _this.onclick(_this)
+        });
+        $(lc).find('.center').click(function(){
+            _this.onclick(_this)
+        });
+        if(this.showTime!=-1){
+            setTimeout(function(){
+                _this.close(id);
+            },this.showTime)
+        }
+        return this;
+    },
+    close:function(id){
+        var lc;
+        if(id){
+            $('.message-frame .message-list ul li[data-hash="'+id+'"]')[0].remove();
+            lc=$('.message-container ul li[data-hash="'+id+'"]')[0];
+        }else{
+            this.element.remove();
+            lc=this.nelement;
+        }
+        $(lc).css({
+            'animation':'message-li-out .3s'
+        })
+        setTimeout(function(){
+            lc.remove();
+        },300)
+        return this;
+    }
+}
+/* tests
+var alls=new Notice({
+    icon:"../../img/icon/cortana.png",
+    title:"Cortana",
+    center:"Hello, I'm Cortana!",
+    showTime:3000
+}).send();
+*/
 //******deploy**
 if(localStorage.version==undefined){
     new Popup({
@@ -919,12 +1003,41 @@ if(localStorage.version==undefined){
     }).build().init();
     localStorage.version=version;
 }else if(localStorage.version!=version){
-    new Popup({
-        url:'../apps/updates.html',
-        title:'版本更新',
-        icon:'../../img/icon/win/255.png',
-        offset:['calc(50% - 150px)','calc(50% - 200px)','400px','300px'],
-        notMax:true
-    }).build().init();
+    new Notice({
+        title:"系统更新",
+        icon:"../../img/windows10_home.png",
+        center:"我们有了新的更新！（v0.7.5）<br>双击了解详情",
+        onclick:function(notice){
+            notice.close();
+            new Popup({
+                url:'../apps/updates.html',
+                title:'系统更新',
+                icon:'../../img/icon/win/255.png',
+                offset:['calc(50% - 250px)','calc(50% - 200px)','400px','500px'],
+                notMax:true
+            }).build().init();
+        }
+    }).send();
     localStorage.version=version;
+}
+//******deploy-end**
+function xqwinframe(){
+    if(_q['win']){
+        $('.bar .left .win').click();
+    }
+}
+$('.bar .right .show-desk').click(function(){
+    for(var i=0;i<POPUPS.length;i++){
+        POPUPS[i].hide();
+    }
+})
+function startSetting(v){
+    if(v.value){
+        $('.win-check[data-change="startSetting"]').click();
+        var opc={"icon":"../../img/icon/settings.png","url":"../apps/setting.html","offset":["20px","20px","700px","560px"],"title":"设置","automax":true};
+        new Popup(opc).build().init();
+        if(_q['message']){
+            $('.bar .right .message').click();
+        }
+    }
 }

@@ -23,7 +23,7 @@
                 <p>回收站</p>
             </li>
             <li class="desk-icon"
-                data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","max":true}'>
+                data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","automax":true}'>
                 <img src="../../img/icon/edge.png" alt="">
                 <p>Microsoft Edge</p>
             </li>
@@ -114,7 +114,7 @@
                 <p class="mini">所有应用</p>
                 <ul>
                     <li
-                        data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","max":true}'>
+                        data-options='{"icon":"../../img/icon/edge.png","url":"../apps/edge.html","offset":["100px","100px","700px","450px"],"title":"Microsoft Edge","automax":true}'>
                         <img src="../../img/icon/edge.png" alt="">
                         <p>Microsoft Edge</p>
                     </li>
@@ -127,6 +127,11 @@
                         data-options='{"icon":"../../img/icon/calculator.png","url":"../apps/jisuanqi.html","offset":["calc(50% - 250px)","calc(50% - 200px)","400px","500px"],"title":"计算器"}'>
                         <img src="../../img/icon/calculator.png"" alt="">
                         <p>计算器</p>
+                    </li>
+                    <li
+                        data-options='{"icon":"../../img/icon/settings.png","url":"../apps/setting.html","offset":["20px","20px","700px","560px"],"title":"设置","automax":true}'>
+                        <img src="../../img/icon/settings.png"" alt="">
+                        <p>设置</p>
                     </li>
                 </ul>
             </div>
@@ -173,23 +178,7 @@
                     <a href="javascript:;" class="win-link">管理通知</a>
                 </div>
                 <div class="message-list">
-                    <ul>
-                        <!-- <li>
-                        <div class="top">
-                            <div class="ui-icon">
-                                <img src="../../img/icon/edge.png" alt="">
-                            </div>
-                            <div class="title">Microsoft Edge</div>
-                            <div class="close">
-                                <img src="../../img/icon/ui/close.png" alt="">
-                            </div>
-                        </div>
-                        <div class="center">
-                            Microsoft Edge 已更新至最新版本。
-                        </div>
-                    </li>
-                     -->
-                    </ul>
+                    <ul></ul>
                 </div>
                 <div class="kzt">
                     <div class="checks">
@@ -211,7 +200,7 @@
                             </div>
                             <div class="title">夜间模式</div>
                         </div>
-                        <div class="win-check">
+                        <div class="win-check" data-change="startSetting">
                             <div class="ui-icon">
                                 <img src="../../img/icon/ui/settings.png" alt="">
                             </div>
@@ -235,7 +224,7 @@
                             </div>
                             <div class="title">节电模式</div>
                         </div>
-                        <div class="win-check">
+                        <div class="win-check disable">
                             <div class="ui-icon">
                                 <img src="../../img/icon/ui/screenshot.png" alt="">
                             </div>
@@ -277,6 +266,9 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="message-container">
+            <ul></ul>
         </div>
         <iframe id="sleep-ifr" frameborder="0"></iframe>
 </body>
