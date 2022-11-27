@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" href="desk.css">
     <script src="../jquery.js"></script>
 </head>
 
 <body>
+    <!-- 桌面 -->
     <div class="desk">
         <ul>
             <li class="desk-icon"
@@ -29,18 +29,10 @@
             </li>
         </ul>
     </div>
+    <!-- 底栏 -->
     <div class="bar">
         <div class="left">
             <div class="win"></div>
-            <!-- <div class="mini-icon">
-                <img src="../../img/icon/explorer.png" />
-            </div>
-            <div class="mini-icon">
-                <img src="../../img/icon/store.png" />
-            </div>
-            <div class="mini-icon">
-                <img src="../../img/icon/edge.png" />
-            </div> -->
         </div>
         <div class="right">
             <div class="other-run">
@@ -66,8 +58,11 @@
             </div>
         </div>
     </div>
+
     <div class="quick-frames">
+        <!-- 开始菜单栏 -->
         <div class="win-frame quick-frame">
+            <!-- 左边部分 -->
             <div class="left-bar">
                 <div class="top">
                     <div class="item start-item">
@@ -110,6 +105,7 @@
                     </div>
                 </div>
             </div>
+            <!-- 应用列表 -->
             <div class="applist">
                 <p class="mini">所有应用</p>
                 <ul>
@@ -124,7 +120,7 @@
                         <p>关于我们</p>
                     </li>
                     <li
-                        data-options='{"icon":"../../img/icon/calculator.png","url":"../apps/jisuanqi.html","offset":["calc(50% - 250px)","calc(50% - 200px)","400px","500px"],"title":"计算器"}'>
+                        data-options='{"icon":"../../img/icon/calculator.png","url":"../apps/jisuanqi.html","offset":["calc(50% -250px)","calc(50% - 200px)","400px","500px"],"title":"计算器"}'>
                         <img src="../../img/icon/calculator.png"" alt="">
                         <p>计算器</p>
                     </li>
@@ -135,9 +131,12 @@
                     </li>
                 </ul>
             </div>
+            <!-- 以后加快捷磁贴 -->
         </div>
+        <!-- 更多内容（Coming Soon） -->
         <div class=" other-run-frame quick-frame">
             </div>
+        <!-- 电池 -->
             <div class="battery-frame quick-frame">
                 <div class="battery-data">
                     <div class="ui-icon">
@@ -153,11 +152,13 @@
                     <div class="title">节电模式</div>
                 </div>
             </div>
+            <!-- 网络（Coming Soon） -->
             <div class="wifi-frame quick-frame">
                 <div class="win-t-load">
                     <span></span><span></span><span></span><span></span><span></span><span></span>
                 </div>
             </div>
+            <!-- 声音（其实没有效果） -->
             <div class="sound-frame quick-frame">
                 <div class="title">扬声器(High Definition Audio Device)</div>
                 <div class="sound-range">
@@ -172,14 +173,46 @@
                     <div class="sound-data">50</div>
                 </div>
             </div>
-            <div class="time-frame quick-frame"></div>
+            <!-- 时间（Coming Soon） -->
+            <div class="time-frame quick-frame">
+                <div class="toptime">
+                    <p class="t"></p>
+                    <a href="javascript:;" class="d win-link"></a>
+                </div>
+                <div class="calendar">
+                    <div class="a">
+                        <p class="d"></p>
+                    </div>
+                    <div class="b">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>一</th>
+                                    <th>二</th>
+                                    <th>三</th>
+                                    <th>四</th>
+                                    <th>五</th>
+                                    <th>六</th>
+                                    <th>日</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="c">
+                        <a href="javascript:;" class="win-link">时间和日期设置</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 信息侧栏 -->
             <div class="message-frame quick-frame">
                 <div class="top-bar">
                     <a href="javascript:;" class="win-link">管理通知</a>
                 </div>
+                <!-- 通知列表 -->
                 <div class="message-list">
                     <ul></ul>
                 </div>
+                <!-- 控制面板 -->
                 <div class="kzt">
                     <div class="checks">
                         <div class="win-check disable">
@@ -231,6 +264,7 @@
                             <div class="title">屏幕截图</div>
                         </div>
                     </div>
+                    <!-- 亮度调节 -->
                     <div class="light-range">
                         <div class="ui-icon">
                             <img src="../../img/icon/ui/sun.png" alt="">
@@ -243,7 +277,9 @@
                 </div>
             </div>
         </div>
+        <!-- 暗模式菜单存放处 -->
         <div class="darkthememenu">
+            <!-- 开始菜单电源选项 -->
             <div class="power-menu">
                 <ul>
                     <li class="sleep-item">
@@ -267,10 +303,14 @@
                 </ul>
             </div>
         </div>
+        <!-- 桌面通知 -->
         <div class="message-container">
             <ul></ul>
         </div>
+        <!-- 睡眠iframe -->
         <iframe id="sleep-ifr" frameborder="0"></iframe>
+        <!-- 右键菜单存放处(Coming Soon) -->
+
 </body>
 <script src="desk.js"></script>
 
