@@ -1,6 +1,6 @@
 var
     /* 当前版本 */
-    version = "0.7.5",
+    version = "0.7.6",
     _a = _b = _c = _e =true,
     _q = {
         'win': false,
@@ -101,6 +101,7 @@ $(document).click(function () {
     }else{
         _e=true;
     }
+    $('.contextmenu').hide();
 })
 refreshdeskIcon();
 
@@ -861,7 +862,8 @@ Popup.prototype = {
         <div class="window-content">
             <iframe src="${this.url}" frameborder="0"></iframe>
         </div>
-        <div class="window-quickframe"></div>`;
+        <div class="window-quickframe"></div>
+        <div class="loading-frame"><img src="${this.icon}"/></div>`;
         var newwindow = document.createElement('div');
         newwindow.classList.add('windows-open-window');
         newwindow.setAttribute('data-offset', JSON.stringify(this.offset));
@@ -877,6 +879,14 @@ Popup.prototype = {
         }
         document.body.append(this.element);
         refix(this.element);
+        var _this=this;
+        $(this.element).find('iframe').get()[0].onload=function(){
+            $(_this.element).find('.loading-frame').css('opacity','0');
+            setTimeout(() => {
+                $(_this.element).find('.loading-frame').hide();
+            }, 300);
+        }
+        console.log($(this.element).find('iframe').get()[0].onload)
         this.active = true;
         POPUPS.push(this);
         setFocus(this.element);
@@ -1036,7 +1046,7 @@ if (localStorage.version == undefined) {
     new Popup({
         url: '../apps/aboutme.html',
         title: '关于',
-        icon: '../../img/icon/win/255.png',
+        icon: '../../img/icon/win/info.png',
         offset: ['calc(50% - 250px)', 'calc(50% - 200px)', '400px', '500px'],
         notMax: true
     }).build().init();
@@ -1051,7 +1061,7 @@ if (localStorage.version == undefined) {
             new Popup({
                 url: '../apps/updates.html',
                 title: '系统更新',
-                icon: '../../img/icon/win/255.png',
+                icon: '../../img/icon/win/info.png',
                 offset: ['calc(50% - 250px)', 'calc(50% - 200px)', '400px', '500px'],
                 notMax: true
             }).build().init();
@@ -1073,14 +1083,23 @@ $('.bar .right .show-desk').click(function () {
 function startSetting(v) {
     if (v.value) {
         $('.win-check[data-change="startSetting"]').click();
-        var opc = { "icon": "../../img/icon/settings.png", "url": "../apps/setting.html", "offset": ["20px", "20px", "700px", "560px"], "title": "设置", "automax": true };
-        new Popup(opc).build().init();
+        var options = { "icon": "../../img/icon/settings.png", "url": "../apps/setting.html", "offset": ["20px", "20px", "700px", "560px"], "title": "设置", "automax": true };
+        for (var i = 0; i < POPUPS.length; i++) {
+            if (POPUPS[i].icon == options.icon && POPUPS[i].title == options.title && POPUPS[i].url == options.url) {
+                POPUPS[i].show();
+                if (_q['message']) {
+                    $('.bar .right .message').click();
+                }
+                return;
+            }
+        }
+        new Popup(options).build().init();
         if (_q['message']) {
             $('.bar .right .message').click();
         }
     }
 }
-
+!function(){
 $('.time-frame .calendar .a .d').text(new Date().getFullYear()+'年'+(new Date().getMonth()+1)+'月');
 var $tb=$('.time-frame .calendar .b table tbody');
 var $tbinner='<tr>';
@@ -1119,4 +1138,183 @@ $tbtd.click(function(){
     _e=false;
     $tbtd.removeClass('active');
     $(this).addClass('active');
+})
+}();
+var ContextMenuId=null;
+var contextmenuedApp=null;
+$('.desk-icon').get().forEach(function(e){e.addEventListener('contextmenu',function(){
+    contextmenuedApp=JSON.parse($(this).attr('data-options'));
+    ContextMenuId='desktop-icon';
+})});
+$('.desk')[0].addEventListener('contextmenu',function(){
+    if(ContextMenuId==null)ContextMenuId='desktop';
+})
+document.addEventListener('contextmenu',function(e){
+    e.preventDefault();
+    $('.contextmenu').hide();
+    if(ContextMenuId==null) return false;
+    var $menu=$('.contextmenu[name="'+ContextMenuId+'"]');
+    $menu.removeAttr('style');
+    $menu.show();
+    var deskWidth=$('.desk').width();
+    var deskHeight=$('.desk').height();
+    var menuWidth=$menu.width();
+    var menuHeight=$menu.height();
+    var Iskright=e.pageX>deskWidth-menuWidth;
+    var Iskbottom=e.pageY>deskHeight-menuHeight-10;
+    if(Iskright){
+        $menu.css({
+            'left':deskWidth-menuWidth+'px'
+        })
+    }else{
+        $menu.css({
+            'left':e.pageX+'px'
+        })
+    };
+    if(Iskbottom){
+        $menu.css({
+            'bottom':window.innerHeight-e.pageY+'px'
+        })
+    }else{
+        $menu.css({
+            'top':e.pageY+'px'
+        })
+    }
+    ContextMenuId=null;
+    return false;
+});
+var __zmenu=false;
+$('.contextmenu li.group-item').hover(function(){
+    $('.contextmenu').hide();
+    $(this).parents('.contextmenu').show();
+    var $menu=$('.contextmenu[name="'+$(this).attr('data-go')+'"]');
+    $menu.removeAttr('style');
+    $menu.show();
+    var deskWidth=$('.desk').width();
+    var deskHeight=$('.desk').height();
+    var menuWidth=$menu.width();
+    var menuHeight=$menu.height();
+    var $pmenu=$(this);
+    var pmenuWidth=$pmenu.width();
+    var pmenutop=$pmenu.offset().top;
+    var pmenuleft=$pmenu.offset().left;
+    if(deskWidth-pmenuleft-pmenuWidth<menuWidth){
+        $menu.css({
+            'left':pmenuleft-pmenuWidth-6+'px'
+        });
+    }else{
+        $menu.css({
+            'left':pmenuleft+pmenuWidth+2+'px'
+        });
+    };
+    if(deskHeight-pmenutop<menuHeight){
+        $menu.css({
+            'bottom':'0px'
+        });
+    }else{
+        $menu.css({
+            'top':pmenutop+'px'
+        });
+    }
+    
+    $menu.hover(function(){
+        __zmenu=true;
+    },function(){
+
+    })
+},function(){
+    var $menu=$('.contextmenu[name="'+$(this).attr('data-go')+'"]');
+    if(__zmenu==false){
+        $menu.hide();
+    }else{
+        __zmenu=false;
+    }
+})
+var IsDeskShow=true;
+$('.contextmenu li[name="reload-deskicon"]').click(function(){
+    if(IsDeskShow){
+        $('.desk-icon').hide();
+        setTimeout(function(){
+            $('.desk-icon').show();
+        },100)
+    }
+})
+$('.contextmenu li[name="start-about]"').click(function(){
+    new Popup({
+        url: '../apps/aboutme.html',
+        title: '关于',
+        icon: '../../img/icon/win/info.png',
+        offset: ['calc(50% - 250px)', 'calc(50% - 200px)', '400px', '500px'],
+        notMax: true
+    }).build().init();
+});
+$('.contextmenu li.linkto-item').click(function(){
+    window.open($(this).attr('data-go'));
+});
+var RadioClickFns={
+    "dlook-radio":function(id){
+        $('.desk').removeClass('smallicon');
+        $('.desk').removeClass('bigicon');
+        if(id=="大图标"){
+            $('.desk').addClass('bigicon')
+        }else if(id=="小图标"){
+            $('.desk').addClass('smallicon')
+        }
+    }
+};
+$('.contextmenu li.radio-item').each(function(){
+    var Qname=$(this).attr('name');
+    var Qauto=$(this).attr('data-auto');
+    if(Qauto=='true'){
+        $('.contextmenu li.radio-item[name="'+Qname+'"]').removeClass('active');
+        $(this).addClass('active');
+    }
+    $(this).click(function(){
+        $('.contextmenu li.radio-item[name="'+Qname+'"]').removeClass('active');
+        $(this).addClass('active');
+        if(typeof RadioClickFns[Qname]=='function'){
+            RadioClickFns[Qname]($(this).find('.title').text());
+        }
+    })
+});
+var CheckClickFns={
+    'dicon-display':function(id){
+        if(id){
+            IsDeskShow=true;
+            $('.desk-icon').show();
+        }else{
+            IsDeskShow=false;
+            $('.desk-icon').hide();
+        }
+    }
+}
+$('.contextmenu li.check-item').each(function(){
+    var Qname=$(this).attr('name');
+    var Qauto=$(this).attr('data-auto');
+    if(Qauto=='true'){
+        $(this).addClass('active');
+    }
+    $(this).click(function(){
+        var _a=true;
+        if(this.classList.contains('active')){
+            $(this).removeClass('active');
+            _a=false;
+        }else{
+            $(this).addClass('active');
+        }
+        if(typeof CheckClickFns[Qname]=='function'){
+            CheckClickFns[Qname](_a);
+        }
+    })
+})
+$('.contextmenu li[name="start-this-app"]').click(function(){
+    var options = contextmenuedApp;
+    for (var i = 0; i < POPUPS.length; i++) {
+        if (POPUPS[i].icon == options.icon && POPUPS[i].title == options.title && POPUPS[i].url == options.url) {
+            POPUPS[i].show();
+            return;
+        }
+    }
+    var p = new Popup(options);
+    p.build().init();
 })

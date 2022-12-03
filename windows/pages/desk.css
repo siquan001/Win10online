@@ -155,7 +155,28 @@ li{
     text-shadow: 0 1px 5px #000;
     font-size: 13px;
 }
-
+.desk.bigicon ul li.desk-icon{
+    width: 90px;
+    margin: 7.5px;
+    min-height: 120px;
+}
+.desk.bigicon ul li.desk-icon img{
+    width: 75px;
+    margin: 7.5px;
+    height: 75px;
+    margin-bottom: 0;
+}
+.desk.smallicon ul li.desk-icon{
+    width:50px;
+    margin: 4px;
+    min-height: 60px;
+}
+.desk.smallicon ul li.desk-icon img{
+    width: 40px;
+    margin: 5px;
+    height: 40px;
+    margin-bottom: 0;
+}
 .desk ul li.desk-icon.active {
     border-color: #fff5;
     background-color: #fff3;
@@ -948,7 +969,23 @@ filter: invert(0);
 .windows-open-window .window-content iframe{
     width: 100%;height: 100%;
 }
-
+.windows-open-window .loading-frame{
+    position: absolute;
+    z-index: 6;
+    top: 34px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 34px);
+    background-color: #fff;
+    transition: opacity .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.windows-open-window .loading-frame img{
+    width: 80px;
+    height: 80px;
+}
 .time-frame {
     color: #fff;
 }
@@ -1012,4 +1049,58 @@ filter: invert(0);
     width: calc(100% - 20px);
     height: 30px;
     padding: 10px ;
+}
+.contextmenu{
+    min-width: 200px;
+    width: 250px;
+    width: max-content;
+    box-shadow:3.5px 3.5px 2px #5e5d5d;
+    position: absolute;
+    z-index: 99999990;
+    background-color: rgb(233, 233, 233);
+    display: none;
+    padding: 5px 0px;
+}
+.contextmenu li{
+    width:calc(100% - 10px);
+    height: 24px;
+    line-height: 24px;
+    padding: 0 5px;
+}
+.contextmenu li:hover{
+    background-color: #fff;
+}
+.contextmenu li .ui-icon{
+    width: 24px;
+    height: 24px;
+    float: left;
+    text-align: center;
+}
+.contextmenu li .ui-icon img{
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+}
+.contextmenu li .title{
+    float: left;
+    font-size: 14px;
+}
+.contextmenu li.group-item::after{
+    content:">";
+    float: right;
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 300;
+}
+.contextmenu li.radio-item.active .ui-icon::after{
+    content:'';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #000;
+    display: block;
+    margin: 9px;
+}
+.contextmenu li.check-item.active .ui-icon::after{
+    content:'✓';
 }

@@ -309,8 +309,127 @@
         </div>
         <!-- 睡眠iframe -->
         <iframe id="sleep-ifr" frameborder="0"></iframe>
-        <!-- 右键菜单存放处(Coming Soon) -->
-
+        <!-- 右键菜单存放处(Deving) -->
+        <div class="context-menus">
+            <!-- 桌面菜单 -->
+            <div class="contextmenu" name="desktop">
+                <ul>
+                    <li class="group-item" data-go="desktop-look">
+                        <div class="ui-icon"></div>
+                        <div class="title">查看</div>
+                    </li>
+                    <li class="group-item" data-go="desktop-sort">
+                        <div class="ui-icon"></div>
+                        <div class="title">排序方式</div>
+                    </li>
+                    <li name="reload-deskicon">
+                        <div class="ui-icon"></div>
+                        <div class="title">刷新</div>
+                    </li>
+                    <hr>
+                    <li class="group-item" data-go="desktop-newfile">
+                        <div class="ui-icon"></div>
+                        <div class="title">新建</div>
+                    </li>
+                    <li name="start-about">
+                        <div class="ui-icon">
+                            <img src="../../img/icon/win/255.png" alt="">
+                        </div>
+                        <div class="title">关于我们</div>
+                    </li>
+                    <li class="linkto-item" data-go="https://github.com/siquan001/Win10online">
+                        <div class="ui-icon">
+                            <img src="../../img/icon/github.png" alt="">
+                        </div>
+                        <div class="title">Github</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="contextmenu" name="desktop-look">
+                <ul>
+                    <li class="radio-item" name="dlook-radio">
+                        <div class="ui-icon"></div>
+                        <div class="title">大图标</div>
+                    </li>
+                    <li class="radio-item" name="dlook-radio" data-auto="true">
+                        <div class="ui-icon"></div>
+                        <div class="title">中等图标</div>
+                    </li>
+                    <li class="radio-item" name="dlook-radio">
+                        <div class="ui-icon"></div>
+                        <div class="title">小图标</div>
+                    </li>
+                    <hr>
+                    <li class="check-item" name="dicon-display" data-auto="true">
+                        <div class="ui-icon"></div>
+                        <div class="title">显示桌面图标</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="contextmenu" name="desktop-sort">
+                <ul>
+                    <li>
+                        <div class="ui-icon"></div>
+                        <div class="title">名称</div>
+                    </li>
+                    <li>
+                        <div class="ui-icon"></div>
+                        <div class="title">大小</div>
+                    </li>
+                    <li>
+                        <div class="ui-icon"></div>
+                        <div class="title">项目类型</div>
+                    </li>
+                    <li>
+                        <div class="ui-icon"></div>
+                        <div class="title">修改日期</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="contextmenu" name="desktop-newfile">
+                <ul>
+                    <li>
+                        <div class="ui-icon">
+                            <img src="../../img/icon/win/folder.png" alt="">
+                        </div>
+                        <div class="title">文件夹</div>
+                    </li>
+                    <li>
+                        <div class="ui-icon">
+                            <img src="../../img/icon/win/shortcut.png" alt="">
+                        </div>
+                        <div class="title">快捷方式</div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div class="ui-icon">
+                            <img src="../../img/icon/win/893.png" alt="">
+                        </div>
+                        <div class="title">文本文件</div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 桌面图标菜单 -->
+            <div class="contextmenu" name="desktop-icon">
+                <ul>
+                    <li name="start-this-app">
+                        <div class="ui-icon"></div>
+                        <div class="title">打开</div>
+                    </li>
+                    <li>
+                        <div class="ui-icon">
+                            <img src="../../img/icon/win/shield.png" alt="">
+                        </div>
+                        <div class="title">用管理员身份打开</div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div class="ui-icon"></div>
+                        <div class="title">属性</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
 </body>
 <script src="desk.js"></script>
 
