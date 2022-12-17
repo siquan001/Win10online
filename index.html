@@ -73,17 +73,8 @@
                 opacity: 0;
             }
         }
-        .wrong{
-            display: none;
-        }
-        .wrong .w{
-            text-align: center;
-            font-size: 45px;
-        }
-        .wrong .wrongtext{
-            text-align: center;
-            width: 80%;
-            margin: 20px 10%;
+        img{
+            max-width: 50%;
         }
     </style>
 </head>
@@ -92,25 +83,28 @@
     <div class="message">
         <h1>至Windows10网页版的中转站</h1>
         <p class="a">Other Website => Windows10网页版</p>
-        <p class="b">在这里，我们只帮你预加载一些图片，并同时检测你的浏览器是否符合Windows10网页版的要求，因为Github站点访问较慢,加载完后自动跳转，如果你不想等待，请点击<a href="./windows/">链接</a></p>
+        <p class="b">在这里，我们只帮你预加载一些图片，因为Github站点访问较慢,加载完后自动跳转，如果你不想等待，请点击<a href="./windows/">链接</a></p>
         <svg viewBox="0 0 50 50" width="100" height="100">
             <circle cx="25" cy="25" r="10" stroke="#666" stroke-width="2" stroke-linecap="round" fill="none" stroke-dasharray="16"></circle>
         </svg>
-        <p class="c">Checking Your Browser...</p>
     </div>
-    <div class="wrong">
-        <div class="w">!</div>
-        <div class="wrongtext">
-            请使用电脑访问
-        </div>
-    </div>
-    <div style="display:none;">
-        <img src="./img/deskbg.jpg" alt="">
-        <img src="./img/loginbg.jpg" alt="">
+    <div>
+        <img src="https://s1.ax1x.com/2022/12/17/zHwsl4.jpg" alt="">
+        <img src="https://s1.ax1x.com/2022/12/17/zHwrpF.jpg" alt="">
         <img src="./img/windows10_home.png" alt="">
         <img src="./img/windows10_icon.png" alt="">
         <img src="./img/icon/bin0.png" alt="">
         <img src="./img/icon/edge.png" alt="">
+        <img src="./img/icon/settings.png" alt="">
+        <img src="./img/icon/ui/settings.png" alt="">
+        <img src="./img/icon/ui/power.png" alt="">
+        <img src="./img/icon/ui/screenshot.png" alt="">
+        <img src="./img/icon/ui/defAccount.png" alt="">
+        <img src="./img/icon/ui/saver.png" alt="">
+        <img src="./img/icon/ui/sun.png" alt="">
+        <img src="./img/icon/ui/moon.png" alt="">
+        <img src="./img/icon/ui/wifi.png" alt="">
+        <img src="./img/icon/ui/airplane.png" alt="">
         <img src="./img/icon/calculator.png" alt="">
         <img src="./img/icon/win/thispc.png" alt="">
         <img src="./img/icon/win/thispc-sm.png" alt="">
@@ -128,48 +122,9 @@
     </div>
 </body>
 <script>
-    checkPhone();
-    checkIE();
-    checkBrowser();
-    function checkPhone(){
-      var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
-      if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(userAgent)){
-        wrong('phone');
-      }
-    }
-    function checkIE() {
-      var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
-      var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
-      var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
-      var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
-      if(isIE||isIE11){
-        wrong('ie');
-      }
-    }
-    function checkBrowser(){
-        var userAgent = navigator.userAgent;
-        if(userAgent.indexOf('Chrome')==-1){
-            var ua=userAgent;
-            ua=ua.substring(ua.indexOf('Chrome/')+7,ua.indexOf('.'));
-            ua=parseInt(ua);;
-            if(ua<76){
-                wrong('b');
-            }
-        }
-    }
-    function wrong(s){
-        window.onload=null;
-        if(s=='phone'){
-            document.querySelector('.message').style.display='none';
-            document.querySelector('.wrong').style.display='block';
-        }else if(s=='ie'||s=='b'){
-            document.querySelector('.message').style.display='none';
-            document.querySelector('.wrong').style.display='block';
-            document.querySelector('.wrongtext').innerHTML='你的浏览器已过时，建议你<a href="https://google.cn/intl/zh-CN/chrome">下载最新版Chrome浏览器</a>'
-        }
-    }
+    
     window.onload=function(){
-        window.location.href='./windows/';
+        // window.location.href='./windows/';
     }
 </script>
 

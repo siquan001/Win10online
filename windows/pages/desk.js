@@ -1239,7 +1239,7 @@ $('.contextmenu li[name="reload-deskicon"]').click(function(){
         },100)
     }
 })
-$('.contextmenu li[name="start-about]"').click(function(){
+$('.contextmenu li[name="start-about"]').click(function(){
     new Popup({
         url: '../apps/aboutme.html',
         title: '关于',

@@ -1,14 +1,5 @@
-window.onresize=r;
 var nc=null;
 var fh=null;
-function r(){
-    document.body.style.width=window.innerWidth+'px';
-    document.body.style.height=window.innerHeight+'px';
-}
-r();
-document.onclick=function(){
-    self.frameElement.parentElement.parentElement.click();
-}
 function $(a){
     var a=document.querySelectorAll(a)
     return a.length<=1?a[0]:a;
