@@ -1,7 +1,6 @@
 var
     /* 当前版本 */
     version = "0.7.6",
-    _a = _b = _c = _e =true,
     _q = {
         'win': false,
         'other-run': false,
@@ -14,25 +13,25 @@ var
     __winclickcache01,
     ZINDEX = 0;
 function refreshdeskIcon() {
-    $('.desk li.desk-icon').click(function () {
+    $('.desk li.desk-icon').click(function (e) {
+        e.stopPropagation();
         $('.desk li.desk-icon').removeClass('active');
         $(this).addClass('active');
-        _a = false;
     })
 }
-$('.bar .left .win').click(function () {
+$('.bar .left .win').click(function (e) {
+    e.stopPropagation();
     quickframeListenerprot('win');
 });
 for (let k in _q) {
     if (k != 'win') {
-        $('.bar .right .' + k).click(function () {
-            console.log(k);
+        $('.bar .right .' + k).click(function (e) {
+            e.stopPropagation();
             quickframeListenerprot(k);
         });
     }
 }
 function quickframeListenerprot(t) {
-    _b = false;
     clearTimeout(__winclickcache01);
     if (!_q[t]) {
         $('.quick-frame').css('animation', 'hide .2s');
@@ -42,7 +41,7 @@ function quickframeListenerprot(t) {
             $('.' + t + '-frame').css('animation', 'totop .3s');
         }
         $('.' + t + '-frame').show();
-        __winclickcache01 = setTimeout(() => {
+        __winclickcache01 = setTimeout(function() {
             $('.quick-frame').each(function () {
                 if (!this.classList.contains(t + '-frame')) {
                     $(this).hide();
@@ -57,7 +56,7 @@ function quickframeListenerprot(t) {
     } else {
         $('.quick-frame').css('animation', 'hide .2s');
         $('.message-frame').css('animation', 'fhide .2s');
-        __winclickcache01 = setTimeout(() => {
+        __winclickcache01 = setTimeout(function() {
             $('.quick-frame').hide();
         }, 200);
         for (var key in _q) {
@@ -66,41 +65,30 @@ function quickframeListenerprot(t) {
     }
 }
 $('.quick-frame').each(function () {
-    this.addEventListener('click', function () {
-        _b = false;
+    this.addEventListener('click', function (e) {
+        e.stopPropagation();
+        $('.darkthememenu>div').hide(300);
+        $('.time-frame .calendar .b table tbody td').removeClass('active');
     })
 })
 $(document).click(function () {
-    if (_a) {
-        $('.desk li.desk-icon').removeClass('active');
+    $('.desk li.desk-icon').removeClass('active');
+
+    if ($('.message-frame').css('display') == 'block') {
+        $('.message-frame').css('animation', 'fhide .2s');
     } else {
-        _a = true;
-    };
-    if (_b) {
-        if ($('.message-frame').css('display') == 'block') {
-            $('.message-frame').css('animation', 'fhide .2s');
-        } else {
-            $('.quick-frame').css('animation', 'hide .2s');
-        }
-        __winclickcache01 = setTimeout(() => {
-            $('.quick-frame').hide();
-        }, 200);
-        for (var key in _q) {
-            _q[key] = false;
-        }
-    } else {
-        _b = true;
-    };
-    if (_c) {
-        $('.darkthememenu>div').hide();
-    } else {
-        _c = true;
-    };
-    if(_e){
-        $('.time-frame .calendar .b table tbody td').removeClass('active');
-    }else{
-        _e=true;
+        $('.quick-frame').css('animation', 'hide .2s');
     }
+    __winclickcache01 = setTimeout(function() {
+        $('.quick-frame').hide();
+    }, 200);
+    for (var key in _q) {
+        _q[key] = false;
+    }
+
+
+    $('.darkthememenu>div').hide(300);
+    $('.time-frame .calendar .b table tbody td').removeClass('active');
     $('.contextmenu').hide();
 })
 refreshdeskIcon();
@@ -166,8 +154,8 @@ $('.win-frame .left-bar .start-item').click(function () {
 });
 
 
-$('.win-frame .left-bar .power-item').click(function () {
-    _c = false;
+$('.win-frame .left-bar .power-item').click(function (e) {
+    e.stopPropagation();
     $('.darkthememenu>.power-menu').toggle(300);
 });
 $('.win-frame .left-bar .setting-item').click(function () {
@@ -630,7 +618,7 @@ function refix(b) {
     // 窗口最大化
     function togglemax() {
         $(b).css('transition', 'all .2s');
-        setTimeout(() => {
+        setTimeout(function() {
             $(b).css('transition', 'none');
         }, 200);
         if ($(b).attr('data-maxing') == '1') {
@@ -882,11 +870,10 @@ Popup.prototype = {
         var _this=this;
         $(this.element).find('iframe').get()[0].onload=function(){
             $(_this.element).find('.loading-frame').css('opacity','0');
-            setTimeout(() => {
+            setTimeout(function() {
                 $(_this.element).find('.loading-frame').hide();
             }, 300);
         }
-        console.log($(this.element).find('iframe').get()[0].onload)
         this.active = true;
         POPUPS.push(this);
         setFocus(this.element);
@@ -1083,7 +1070,7 @@ $('.bar .right .show-desk').click(function () {
 function startSetting(v) {
     if (v.value) {
         $('.win-check[data-change="startSetting"]').click();
-        var options = { "icon": "../../img/icon/settings.png", "url": "../apps/setting.html", "offset": ["20px", "20px", "700px", "560px"], "title": "设置", "automax": true };
+        var options = { "icon": "../../img/icon/settings.png", "url": "../apps/setting/setting.html", "offset": ["20px", "20px", "700px", "560px"], "title": "设置", "automax": true };
         for (var i = 0; i < POPUPS.length; i++) {
             if (POPUPS[i].icon == options.icon && POPUPS[i].title == options.title && POPUPS[i].url == options.url) {
                 POPUPS[i].show();
@@ -1133,9 +1120,9 @@ for(var i=0;i<7-$tbrld.length;i++){
     dstd.innerText=(i+1).toString();
     $tbrl.append(dstd);
 }
-$tbtd=$tb.find('td');
-$tbtd.click(function(){
-    _e=false;
+var $tbtd=$tb.find('td');
+$tbtd.click(function(e){
+    e.stopPropagation();
     $tbtd.removeClass('active');
     $(this).addClass('active');
 })
