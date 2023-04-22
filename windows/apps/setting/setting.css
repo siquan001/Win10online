@@ -243,6 +243,7 @@ body{
 }
 
 .page[path="/system"]{
+  box-sizing: content-box;
   /* display:block; */
 }
 .celan{

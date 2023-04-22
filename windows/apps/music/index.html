@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KuGou For Web</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="topper">
+    <div class="leftcon">
+      <div class="item bi bi-chevron-left"></div>
+      <div class="item bi bi-arrow-clockwise"></div>
+    </div>
+    <div class="list">
+      <div class="item act">音乐</div>
+    </div>
+    <div class="search-box">
+      <div class="bi bi-search"></div>
+      <input type="search" id="m-search" placeholder="生日快乐">
+    </div>
+    <div class="user">
+      <div class="ui-icon">
+        <img src="../../../img/icon/ui/defAccount.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="playlist">
+      <div class="list">
+        <ul>
+        </ul>
+      </div>
+      <div class="gc">
+        <div class="title">酷狗音乐</div>
+        <div class="singer">酷狗音乐</div>
+        <div class="gcframe" style="--i:1;">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="searchlist">
+      <ul>
+      </ul>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="progress" style="--i:0%"></div>
+    <div class="controls">
+      <div class="left">
+        <img src="../../../img/kugou.jpg" alt="">
+        <div class="song">
+          <div class="name">酷狗音乐</div>
+          <div class="album">酷狗音乐</div>
+        </div>
+      </div>
+      <div class="center">
+        <div class="bi bi-skip-start-fill"></div>
+        <div class="bi bi-play-fill playbtn"></div>
+        <div class="bi bi-skip-end-fill"></div>
+      </div>
+      <div class="right">
+        <div class="time"><span class="z">00:00</span>/<span class="c">00:00</span></div>
+        <select id="bs">
+          <option value="2">2x</option>
+          <option value="1.75">1.75x</option>
+          <option value="1.5">1.5x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1" selected>倍速</option>
+          <option value="0.75">0.75x</option>
+          <option value="0.5">0.5x</option>
+          <option value="0.25">0.25x</option>
+        </select>
+        <select id="sy">
+          <option value="1">大声</option>
+          <option value="0.75">较大</option>
+          <option value="0.5" selected>声音</option>
+          <option value="0.3">较小</option>
+          <option value="0.15">小声</option>
+          <option value="0">无声</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <audio id="audio"></audio>
+</body>
+<script src="../../appui.js"></script>
+<script src="./index.js"></script>
+</html>
