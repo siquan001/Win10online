@@ -1,173 +1,190 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        *{
-            margin: 0;padding: 0;
-        }
-        
-        body{
-            width: 100%;
-            height: 100vh;
-            background-image: url(https://s1.ax1x.com/2022/12/17/zHwsl4.jpg);
-            background-size: cover;
-            background-position: center center;
-            background-color: #09f;
-            font-family: 'Microsoft YaHei';
-            user-select: none;
-            transition: opacity .3s;
-        }
-        .frameA{
-            width: 100%;
-            height: 100vh;
-            position: absolute;
-            top: 0;left: 0;
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-            transition: all .3s;
-        }
-        .frameA .time{
-            color: #fff;
-            position: absolute;
-            bottom: 0;left: 0;
-            padding: 60px 20px;
-            text-shadow: 0 1px 10px rgba(0,0,0,0.2);
-        }
-        .frameA .time p.t{
-            font-size: 100px;
-            font-weight:300;
-        }
-        .frameA .time p.d{
-            font-size: 30px;
-            font-weight:400;
-        }
-        .frameB{
-            width: 100%;
-            height: 100vh;
-            position: absolute;
-            top: 0;left: 0;
-            backdrop-filter: blur(10px);
-            background-color: #0006;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+    body {
+      width: 100%;
+      height: 100vh;
+      background-image: url(https://s1.ax1x.com/2022/12/17/zHwsl4.jpg);
+      background-size: cover;
+      background-position: center center;
+      background-color: #09f;
+      font-family: 'Microsoft YaHei';
+      user-select: none;
+      transition: opacity .3s;
+    }
 
-            opacity: 0;
-            pointer-events: none;
-            transition: all .6s;
-        }
-        .frameB .account-icon{
-            width: 170px;
-        }
-        .frameB .account-name{
-            color: #fff;
-            font-size: 40px;
-            line-height: 60px;
-            font-weight: 300;
-        }
-        button{
-            border: #ccc solid 2px;
-            outline: 0;
-            box-sizing: border-box;
-            background-color: #ccc;
-            font-size: 16px;
-            line-height: 31px;
-            padding: 0 28px;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: all .2s;
-        }
-        button:hover{
-            border: #eee solid 2px!important;
-        }
-        button:active{
-            background-color: #aaa;
-            border-color: #ccc8;
-        }
-        .frameB button{
-            background-color: #ccc8;
-            border-color: #ccc8;
-            margin-bottom: 70px;
-            margin-top: 20px;
-            color: #fff;
-        }
-        .frameB button:active{
-            background-color: #eee8;
-            border-color: #ccc8!important;
-        }
-        .frameC{
-            width: 100%;
-            height: 100vh;
-            position: absolute;
-            top: 0;left: 0;
-            background-color: #000;
-            display: none;
-            cursor: none;
-        }
-    </style>
-    <script src="../jquery.js"></script>
+    .frameA {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      transition: all .3s;
+    }
+
+    .frameA .time {
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 60px 20px;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .frameA .time p.t {
+      font-size: 100px;
+      font-weight: 300;
+    }
+
+    .frameA .time p.d {
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+    .frameB {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(10px);
+      background-color: #0006;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      opacity: 0;
+      pointer-events: none;
+      transition: all .6s;
+    }
+
+    .frameB .account-icon {
+      width: 170px;
+    }
+
+    .frameB .account-name {
+      color: #fff;
+      font-size: 40px;
+      line-height: 60px;
+      font-weight: 300;
+    }
+
+    button {
+      border: #ccc solid 2px;
+      outline: 0;
+      box-sizing: border-box;
+      background-color: #ccc;
+      font-size: 16px;
+      line-height: 31px;
+      padding: 0 28px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    button:hover {
+      border: #eee solid 2px !important;
+    }
+
+    button:active {
+      background-color: #aaa;
+      border-color: #ccc8;
+    }
+
+    .frameB button {
+      background-color: #ccc8;
+      border-color: #ccc8;
+      margin-bottom: 70px;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .frameB button:active {
+      background-color: #eee8;
+      border-color: #ccc8 !important;
+    }
+
+    .frameC {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      display: none;
+      cursor: none;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="frameA">
-        <div class="time">
-            <p class="t">00:00</p>
-            <p class="d">1月1日 星期一</p>
-        </div>
+  <div class="frameA">
+    <div class="time">
+      <p class="t">00:00</p>
+      <p class="d">1月1日 星期一</p>
     </div>
-    <div class="frameB">
-        <img class="account-icon" src="../../img/icon/ui/defAccount.png" alt="">
-        <p class="account-name">Administrater</p>
-        <button class="login-btn">登录</button>
-    </div>
-    <div class="frameC"></div>
+  </div>
+  <div class="frameB">
+    <img class="account-icon" src="../../img/icon/ui/defAccount.png" alt="">
+    <p class="account-name">Administrater</p>
+    <button class="login-btn">登录</button>
+  </div>
+  <div class="frameC"></div>
 </body>
 <script src="../urlreader.js"></script>
 <script>
-    function updateTime(){
-        var hz=['日','一','二','三','四','五','六']
-        $('.frameA .time p.t').html(check(new Date().getHours())+':'+check(new Date().getMinutes()));
-        $('.frameA .time p.d').html((new Date().getMonth()+1)+'月'+new Date().getDate()+'日，星期'+hz[new Date().getDay()]);
-        function check(a){
-            if(a<10){
-                a='0'+a;
-            }
-            return a;
-        }
-        setTimeout(() => {
-            updateTime();
-        }, 200);
+  function updateTime() {
+    var hz = ['日', '一', '二', '三', '四', '五', '六']
+    document.querySelector('.frameA .time p.t').innerHTML = check(new Date().getHours()) + ':' + check(new Date().getMinutes());
+    document.querySelector('.frameA .time p.d').innerHTML = (new Date().getMonth() + 1) + '月' + new Date().getDate() + '日，星期' + hz[new Date().getDay()];
+    function check(a) {
+      if (a < 10) {
+        a = '0' + a;
+      }
+      return a;
     }
-    updateTime();
-    var loginfn=() => {
-            location.href='desk.html';
-        }
-    $('.frameA').click(function(){
-        $(this).css('top','-100%');
-        setTimeout(function(){
-            $('.frameB').css({
-            'opacity':'1',
-            'pointer-events':'all'
-        })
-        },300)
-        
-    });
-    $('.frameB .login-btn').click(function(){
-        $('body').css('opacity','0');
-        setTimeout(loginfn, 300);
-    })
-    if($_GET('mode')=='poweron'){
-        $('.frameA').click();
-    }else if($_GET('mode')=='sleep'){
-        $('.frameC').show();
-        $(document).mousemove(function(){
-            $('.frameC').hide();
-        })
-        loginfn=()=>{
-            self.frameElement.style.display='none';
-        }
+    setTimeout(function () {
+      updateTime();
+    }, 200);
+  }
+  updateTime();
+  var loginfn = function () {
+    location.href = 'desk.html';
+  }
+  document.querySelector('.frameA').onclick = function () {
+    this.style.top = "-100%";
+    setTimeout(function () {
+      document.querySelector('.frameB').style.opacity = '1';
+      document.querySelector('.frameB').style.pointerEvents = 'all';
+    }, 300)
+  };
+  document.querySelector('.frameB .login-btn').onclick = function () {
+    document.body.style.opacity = '0';
+    setTimeout(loginfn, 300);
+  }
+  if ($_GET('mode') == 'poweron') {
+    document.querySelector('.frameA').click();
+  } else if ($_GET('mode') == 'sleep') {
+    document.querySelector('.frameC').style.display = "block";
+    document.onmousemove = function () {
+      document.querySelector('.frameC').style.display = "none";
+    };
+    loginfn = function () {
+      self.frameElement.style.display = 'none';
     }
+  }
 </script>
+
 </html>

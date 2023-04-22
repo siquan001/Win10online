@@ -3,6 +3,93 @@
     margin: 0;
     padding: 0;
 }
+body{
+  overflow-x: hidden;
+}
+::-webkit-scrollbar{
+  background-color: transparent;
+  display:none;
+  width: 10px;
+  height: 10px;
+  padding-right: 5px;
+}
+*:hover::-webkit-scrollbar{
+  display:block;
+}
+::-webkit-scrollbar-thumb{
+  background-image: linear-gradient(to right,#0000 45%,#000 50%,#0000 60%);
+}
+::-webkit-scrollbar-thumb:hover{
+  background-image: none;
+  background-color: #0005;
+}
+::-webkit-scrollbar:hover{
+  background-color:#ddd;
+}
+@font-face {
+  font-family: SettingIcons;
+  src: url(../../../assets/SettingsIcons.woff2);
+}
+.si{
+  font-family: SettingIcons;
+}
+.si-system::before{
+  content:'\e7f8'
+}
+.si-bluetouth::before{
+  content: '\e702';
+}
+.si-device::before{
+  content: '\e772';
+}
+.si-phone::before{
+  content: '\e8ea';
+}
+.si-network::before{
+  content: '\e704';
+}
+.si-custom::before{
+  content: '\e771';
+}
+.si-app::before{
+  content: '\f2c7';
+}
+.si-user::before{
+  content:'\e779';
+}
+.si-time-language::before{
+  content:'\f2b7';
+}
+.si-privacy::before{
+  content: '\e72e';
+}
+.si-update::before{
+  content: '\ee6e';
+}
+.si-sound::before{
+  content: '\e767';
+}
+.si-notification::before{
+  content:'\ea8f'
+}
+.si-moon::before{
+  content:'\e708'
+}
+.si-power::before{
+  content: '\ed03';
+}
+.si-storage::before{
+  content: '\eda2';
+}
+.si-fardesk::before{
+  content: '\e8af';
+}
+.si-clipboard::before{
+  content: '\e77f';
+}
+.si-about::before{
+  content: '\e55a';
+}
 .tc{
     width: 100%;
     height: calc(100% - 59px);
@@ -11,4 +98,322 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.page{
+  width: 100%;
+  height: 100%;
+  display:none;
+  animation: scale .3s;
+}
+@keyframes scale {
+  0%{
+    transform: scale(0.8);
+  }00%{
+    transform: scale(1);
+  }
+}
+.page[path="/index"]{
+  display: block;
+}
+.page[path="/index"]>.title{
+  text-align: center;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 80px;
+}
+.page[path="/index"] .search{
+  width: 300px;
+  margin: 0 auto;
+  border: #09f solid 2px;
+  height: 30px;
+}
+.page[path="/index"] .search input{
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 260px;
+  height: 30px;
+  padding:0 5px;
+  float: left;
+}
+.page[path="/index"] .search button{
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  float: left;
+  color: #888;
+}
+.page[path="/index"] .search button.bi-x-lg{
+  color: #000;
+  cursor: pointer;
+}
+.page[path="/index"] .search button.bi-x-lg:hover{
+  color: #09f;
+}
+.page[path="/index"] .setting-list{
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 60px;
+}
+@media(max-width:1000px){
+.page[path="/index"] .setting-list{
+  width: 750px;
+}
+}
+@media(max-width:750px){
+.page[path="/index"] .setting-list{
+  width: 500px;
+}
+}
+
+.page[path="/index"] .setting-item{
+  float: left;
+  width: 200px;
+  height: 60px;
+  border: transparent solid 2px;
+  margin: 3px;
+  padding: 20px;
+}
+.page[path="/index"] .setting-item:hover{
+  border-color: #ddd;
+}
+.page[path="/index"] .setting-item .ui-icon{
+  width: 60px;
+  height: 60px;
+  float: left;
+  font-size: 30px;
+  color: #09f;
+}
+.page[path="/index"] .setting-item .message{
+  float: left;
+  width: 140px;
+}
+.page[path="/index"] .setting-item .message .title{
+  font-size: 14px;
+  line-height: 24px;
+}
+.page[path="/index"] .setting-item .message .txt{
+  font-size: 12px;
+  color: #888;
+}
+@media(max-width:600px){
+  .page[path="/index"]>.title{
+    display:none;
+  }
+  .page[path="/index"] .search{
+    width: calc(100% - 24px);
+    margin:0 10px;
+  }
+  .page[path="/index"] .search input{
+    width: calc(100% - 40px);
+  }
+  .page[path="/index"] .setting-list{
+    width: 100%;
+    padding:20px 0;
+  }
+  .page[path="/index"] .setting-item{
+    float: none;
+    width: calc(100% - 15px);
+    height:70px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .page[path="/index"] .setting-item .ui-icon{
+    width: 50px;
+    height: 50px;
+    float: left;
+    font-size: 30px;
+    color: #09f;
+  }
+  .page[path="/index"] .setting-item .message{
+    float: left;
+    width: calc(100% - 60px);
+  }
+  .page[path="/index"] .setting-item .message .title{
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .page[path="/index"] .setting-item .message .txt{
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+.page[path="/system"]{
+  /* display:block; */
+}
+.celan{
+  width: 320px;
+  height: 100%;
+  background-color: #eee;
+  float: left;
+}
+.celan .fh{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+.celan .home{
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 5px;
+  cursor: pointer;
+}
+.celan .home:hover,
+.celan .list li:hover
+{
+  background-color: #ddd;
+}
+.celan .home .ui-icon{
+  float: left;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+}
+.celan .home .title{
+  line-height: 30px;
+  text-indent: 10px;
+}
+.celan .fh:hover{
+  background-color: #09f;
+  color: #fff;
+}
+.contents{
+  width: calc(100% - 320px);
+  height: 100%;
+  background-color: #fff;
+  float: left;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.celan .search{
+  width: 300px;
+  margin: 10px auto;
+  border: #09f solid 2px;
+  height: 30px;
+  background-color: #fff;
+}
+.celan .search input{
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 260px;
+  height: 30px;
+  padding:0 5px;
+  float: left;
+}
+.celan .search button{
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  float: left;
+  color: #888;
+}
+.celan .search button.bi-x-lg{
+  color: #000;
+  cursor: pointer;
+}
+.celan .search button.bi-x-lg:hover{
+  color: #09f;
+}
+.celan .list{
+  height:calc(100% - 140px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.celan .list li{
+  width: 100%;
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+.celan .list li.active::after{
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 26px;
+  background-color: #09f;
+  top: 12px;
+  left: 0;
+}
+.celan .list li .ui-icon{
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  padding:0 10px;
+  color: #000;
+}
+.celan .list li .title{
+  float: left;
+  line-height: 30px;
+  font-size: 14px;
+}
+.contents .se-content{
+  padding:20px 40px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.contents .se-content h1{
+  font-weight: 400;
+  padding-bottom: 20px;
+  font-size: 30px;
+}
+.contents .se-content h2{
+  font-weight: 400;
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+.contents .se-content p{
+  font-size: 14px;
+}
+.win-link{
+  color: #0af;
+  cursor: pointer;
+}
+.win-link:hover{
+  color: #aaa;
+}
+.win-check2{
+  width: 60px;
+  height: 24px;
+  border: #000 solid 2px;
+  border-radius: 30px;
+  transition: all .3s;
+  position: relative;
+  margin: 10px 0;
+}
+.win-check2 span{
+  background-color: #000;
+  width: 16px;
+  height: 16px;
+  margin: 4px;
+  border-radius: 50%;
+  display: block;
+  transition: all .3s;
+}
+.win-check2 .statu{
+  position: absolute;
+  top: 0;
+  right: -30px;
+  line-height: 24px;
+}
+.win-check2.checked{
+  border-color:#09f;
+}
+.win-check2.checked span{
+  background-color: #09f;
+  margin-left: 40px;
 }
