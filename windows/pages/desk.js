@@ -1303,3 +1303,25 @@ document.querySelector('.contextmenu li[name="start-this-app"]').onclick=functio
   var p = new Popup(options);
   p.build().init();
 };
+window.onoffline=function(){
+  new Notice({
+    title: "网络错误",
+    icon: "../../img/windows10_home.png",
+    center: "你似乎已经断网，请尽快联网！",
+    showTime:6000,
+    onclick: function (notice) {
+      notice.close();
+    }
+  }).send();
+}
+window.ononline=function(){
+  new Notice({
+    title: "已连上网络",
+    icon: "../../img/windows10_home.png",
+    center: "网络已成功连上！",
+    showTime:2000,
+    onclick: function (notice) {
+      notice.close();
+    }
+  }).send();
+}
